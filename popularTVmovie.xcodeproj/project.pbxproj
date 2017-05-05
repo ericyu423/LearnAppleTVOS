@@ -12,6 +12,9 @@
 		D47E00621EBBE1D1009E7C76 /* popularTVmovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D47E00601EBBE1D1009E7C76 /* popularTVmovie.xcdatamodeld */; };
 		D47E00651EBBE1D1009E7C76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47E00631EBBE1D1009E7C76 /* Main.storyboard */; };
 		D47E00671EBBE1D2009E7C76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47E00661EBBE1D2009E7C76 /* Assets.xcassets */; };
+		D47E006F1EBBE6D9009E7C76 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E006E1EBBE6D9009E7C76 /* extensions.swift */; };
+		D47E00711EBBE7FC009E7C76 /* batman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D47E00701EBBE7FC009E7C76 /* batman.jpg */; };
+		D47E00731EBC1928009E7C76 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E00721EBC1928009E7C76 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		D47E00641EBBE1D1009E7C76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D47E00661EBBE1D2009E7C76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D47E00681EBBE1D2009E7C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D47E006E1EBBE6D9009E7C76 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		D47E00701EBBE7FC009E7C76 /* batman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = batman.jpg; sourceTree = "<group>"; };
+		D47E00721EBC1928009E7C76 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,12 @@
 			children = (
 				D47E005C1EBBE1D1009E7C76 /* AppDelegate.swift */,
 				D47E005E1EBBE1D1009E7C76 /* ViewController.swift */,
+				D47E006E1EBBE6D9009E7C76 /* extensions.swift */,
 				D47E00631EBBE1D1009E7C76 /* Main.storyboard */,
 				D47E00661EBBE1D2009E7C76 /* Assets.xcassets */,
+				D47E00701EBBE7FC009E7C76 /* batman.jpg */,
 				D47E00681EBBE1D2009E7C76 /* Info.plist */,
+				D47E00721EBC1928009E7C76 /* Movie.swift */,
 				D47E00601EBBE1D1009E7C76 /* popularTVmovie.xcdatamodeld */,
 			);
 			path = popularTVmovie;
@@ -125,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D47E00671EBBE1D2009E7C76 /* Assets.xcassets in Resources */,
+				D47E00711EBBE7FC009E7C76 /* batman.jpg in Resources */,
 				D47E00651EBBE1D1009E7C76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +149,8 @@
 				D47E005F1EBBE1D1009E7C76 /* ViewController.swift in Sources */,
 				D47E00621EBBE1D1009E7C76 /* popularTVmovie.xcdatamodeld in Sources */,
 				D47E005D1EBBE1D1009E7C76 /* AppDelegate.swift in Sources */,
+				D47E006F1EBBE6D9009E7C76 /* extensions.swift in Sources */,
+				D47E00731EBC1928009E7C76 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
