@@ -71,6 +71,66 @@ C. download from the web useful GCD
        //Background thread
        
         DispatchQueue.main.async {
-            //update UI
+            // If you don't update UI here it will be VERY SLOW
         }
     }
+    
+    
+# what happen in each situation
+
+      do{
+             let data = try Data(contentsOf: url)
+              DispatchQueue.main.async {
+                    //run UI
+                let img = UIImage(data: data)
+                 self.imageView.image = img
+              }
+       }catch{
+                //no image
+      }
+      
+   //above code is the same as below since last two line was already in main queue 
+   //(view wait for all pictures loaded - takes about 5 seconds
+   //default picture does not even load
+
+           do{
+                  let data = try Data(contentsOf: url)
+                  let img = UIImage(data: data)
+                   self.imageView.image = img
+              
+            }catch{
+                //no image
+           }
+# all in main
+  //loads default picture than once all images are loaded it displays
+  //it takes 5 secs
+      DispatchQueue.main.async {
+            do{
+                    let data = try Data(contentsOf: url)
+                    let img = UIImage(data: data)
+                    self.imageView.image = img
+            }catch{}
+       }
+          
+
+
+           
+# all line in global
+   
+   //loads default picture than once all images are loaded it displays
+   //it takes 8-10 secs
+   
+            
+              DispatchQueue.global(qos: .userInitiated).async {
+                 do{
+                    let data = try Data(contentsOf: url)
+                    let img = UIImage(data: data)
+                    self.imageView.image = img
+                 }catch{}
+              }
+              
+
+    
+           
+
+
