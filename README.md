@@ -61,11 +61,7 @@ C. download from the web useful GCD
 
 
 
-
-
-
-
-//if data contain image/video/song url process it in UICollectionCells
+# Correct way to load image in cell
 
     DispatchQueue.global(qos: .userInitiated).async {
        //Background thread
@@ -76,7 +72,8 @@ C. download from the web useful GCD
     }
     
     
-# what happen in each situation
+    
+# what happen in each incorrect situation
 
       do{
              let data = try Data(contentsOf: url)
@@ -89,9 +86,9 @@ C. download from the web useful GCD
                 //no image
       }
       
-   //above code is the same as below since last two line was already in main queue 
-   //(view wait for all pictures loaded - takes about 5 seconds
-   //default picture does not even load
+   above code is the same as below since last two line was already in main queue 
+   (view wait for all pictures loaded - takes about 5 seconds
+   default picture does not even load
 
            do{
                   let data = try Data(contentsOf: url)
@@ -105,8 +102,8 @@ C. download from the web useful GCD
 # all in main
 
 
- loads default picture than once all images are loaded it displays/n
- it takes 5 secs/n
+ loads default picture than once all images are loaded it displays
+ it takes 5 secs
   
 
           DispatchQueue.main.async {
@@ -122,8 +119,8 @@ C. download from the web useful GCD
            
 # all line in global
    
-  loads default picture than once all images are loaded it displays/n
-  it takes 8-10 secs/n
+  loads default picture than once all images are loaded it displays
+  it takes 8-10 secs
    
             
               DispatchQueue.global(qos: .userInitiated).async {
