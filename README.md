@@ -15,11 +15,11 @@ B. xcode
   
    step1 xcode -> tvOS -> single View Application
    
-   notes: p.list doesn't need "App Transport Security Settings" since is a "https" not "http"
+   notes: info.plist doesn't need "App Transport Security Settings" since is a "https" not "http"
    
-C. download from the web useful GCD
 
-//download data
+
+Useful code snippets (Swift 3.0)
 
 
 
@@ -103,7 +103,7 @@ C. download from the web useful GCD
 
 
  loads default picture than once all images are loaded it displays
- it takes 5 secs
+  it takes 5 secs
   
 
           DispatchQueue.main.async {
