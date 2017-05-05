@@ -15,6 +15,9 @@ let cellId = "cellId"
 class ViewController: UIViewController{
    
     
+    let cellSize = CGSize(width: 280 , height: 400)
+    let focusSize = CGSize(width: 280 * 1.10, height: 400 * 1.10)
+    
     var movies = [Movie]()
     
     lazy var collectionView: UICollectionView = {
@@ -98,23 +101,71 @@ extension ViewController: UICollectionViewDataSource,UICollectionViewDelegate,UI
         return movies.count
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
         
         let movie = movies[indexPath.row]
         cell.configureCell(movie: movie)
+        
+        if cell.gestureRecognizers?.count == nil{
+            let tap = UITapGestureRecognizer(target: self
+                , action: #selector(cellTapped))
+            
+        
+            tap.allowedPressTypes =  [NSNumber(value: UIPressType.select.rawValue)]
+            
+            cell.addGestureRecognizer(tap)
+        }
+        
      
 
         return cell
     }
     
+    func cellTapped(gesture: UITapGestureRecognizer){
+        
+
+        if let cell = gesture.view as? PageCell {
+            
+            
+            print("I am tapped")
+        }
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        return CGSize(width: collectionView.frame.width/4, height: collectionView.frame.height * 0.8)
+        return cellSize
     }
+    
    
+}
+//focus
+extension ViewController {
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        if let prev = context.previouslyFocusedView as? PageCell {
+            UIView.animate(withDuration: 0.2, animations: { 
+                prev.imageView.frame.size = self.cellSize
+            })
+        }
+        
+        if let next = context.nextFocusedView as? PageCell {
+            UIView.animate(withDuration: 0.2, animations: {
+                next.imageView.frame.size = self.focusSize
+            })
+        }
+
+        
+        
+    }
 }
 
 class PageCell: UICollectionViewCell {
@@ -143,7 +194,7 @@ class PageCell: UICollectionViewCell {
         
         imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 15, paddingLeft: 15, paddingBottom: 50, paddingRight: 15, width: 0, height: 0)
         
-      label.anchor(top: imageView.bottomAnchor, left: imageView.leftAnchor, bottom: bottomAnchor, right: imageView.rightAnchor, paddingTop: 10, paddingLeft: 0, paddingBottom: 15, paddingRight: 0, width: 0, height: 0)
+        label.anchor(top: imageView.bottomAnchor, left: imageView.leftAnchor, bottom: bottomAnchor, right: imageView.rightAnchor, paddingTop: 10, paddingLeft: 0, paddingBottom: 15, paddingRight: 0, width: 0, height: 0)
    
     }
     
@@ -169,16 +220,10 @@ class PageCell: UICollectionViewCell {
                     //no image
                 }
             }
-        
-        
-        
         }
-            
-            
-            
-        }
-        
     }
+        
+}
     
     
     
