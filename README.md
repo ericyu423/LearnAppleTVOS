@@ -101,24 +101,29 @@ C. download from the web useful GCD
             }catch{
                 //no image
            }
+           
 # all in main
-  //loads default picture than once all images are loaded it displays
-  //it takes 5 secs
-      DispatchQueue.main.async {
-            do{
-                    let data = try Data(contentsOf: url)
-                    let img = UIImage(data: data)
-                    self.imageView.image = img
-            }catch{}
-       }
-          
+
+
+ loads default picture than once all images are loaded it displays/n
+ it takes 5 secs/n
+  
+
+          DispatchQueue.main.async {
+                do{
+                        let data = try Data(contentsOf: url)
+                        let img = UIImage(data: data)
+                        self.imageView.image = img
+                }catch{}
+           }
+
 
 
            
 # all line in global
    
-   //loads default picture than once all images are loaded it displays
-   //it takes 8-10 secs
+  loads default picture than once all images are loaded it displays/n
+  it takes 8-10 secs/n
    
             
               DispatchQueue.global(qos: .userInitiated).async {
